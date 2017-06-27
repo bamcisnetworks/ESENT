@@ -11,12 +11,17 @@ This call gets the contents of the IE web history for the current user. The sess
 
 ### 2
 $Session = New-ESEDatabaseSession -Path C:\Users\Administrator\AppData\Local\Microsoft\Windows\WebCache\WebCacheV01.dat -LogPrefix "V01" -ProcessesToStop @("dllhost","taskhostw")
+
 Get-ESEDatabaseTableNames -Session $Session.Session -DatabaseId $Session.DatabaseId
+
 Close-ESEDatabase -Instance $Session.Instance -Session $Session.Session -DatabaseId $Session.DatabaseId -Path $Session.Path
 
 This call opens a new session, enumerates the table names in the database, and then closes the session.
 
 ## Revision History
+
+### 1.0.0.1
+Fixed manifest file.
 
 ### 1.0.0.0
 Initial Release
